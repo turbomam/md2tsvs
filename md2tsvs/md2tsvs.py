@@ -43,7 +43,13 @@ def md2tsvs(mdfile):
 
     dataFrame = pd.DataFrame(data=data, columns=list_header)
 
-    print(dataFrame)
+    # col_count = len(dataFrame.columns)
+
+    dataFrame.drop(labels=["\n"], axis=1, inplace=True)
+
+    # print(dataFrame)
+
+    dataFrame.to_csv("table1.tsv", sep="\t", index=False)
 
 
 if __name__ == '__main__':
